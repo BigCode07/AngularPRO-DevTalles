@@ -5,6 +5,7 @@ import {
   HostBinding,
   input,
   OnInit,
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
@@ -16,13 +17,14 @@ import {
   host: {
     class: 'w-1/4 border-r border-b border-indigo-400',
   },
+  // encapsulation: ViewEncapsulation.None
 })
 export class CalculatorButtonComponent {
   public isCommand = input(false, {
     transform: (value: boolean | string) => (typeof value === 'string' ? value === '' : value),
   });
 
-  @HostBinding('class.is-command') get commandStyle() {
-    return true;
-  }
+//   @HostBinding('class.is-command') get commandStyle() {
+//     return true;
+//   }
 }
